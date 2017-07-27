@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" name="viewport" content="text/html; charset=utf-8; initial-scale=1; user-scalable=0; minimal-ui">
+<body>
+<style>
+    span.pink {color:pink}
+    span.red {color:indianred}
+</style>    
+<script type="text/javascript">
+    var flag=true
+    var f=new Array(9)
+    var num=0
+    f.fill(0)
+    function change(obj,i)
+    {
+        if (flag)
+        {
+            f[i]=1;
+            rd=Math.random()
+            if (rd<0.7)
+            {
+                if (rd<0.1){obj.src="bun6.png"}else{obj.src="bun2.png";}
+            }
+            else
+            {
+                obj.src="bun3.png";
+                flag=false;
+                num+=1;
+                if (num==1){
+                    document.getElementById("demo").innerHTML="泥被气气豹吃了！";
+                }
+                else{
+                    document.getElementById("demo").innerHTML="泥又被气气豹吃了！";
+                }
+            }
+            var if_all_clicked=true
+            for(var j = 0; j<9; j++){
+                if (f[j]==0){
+                    if_all_clicked=false;
+                }
+            }
+           if (if_all_clicked==true & flag){
+               tmp="被吃了"+num+"次后终于赢了"
+               if (num>30){newContent='<div align="center"><img src="bun5.png"><br /><br /><p>'}
+               else{newContent='<div align="center"><img src="bun4.png"><br /><br /><p>'}
+               newContent+=tmp
+               newContent+='</p><input type="button" value="重来" style="width: 85px; height: 60px;" onclick="history.go(0)"></div>'
+               document.write(newContent)
+           }
+        }
+    }
+
+    function reborn()
+    {
+        f.fill(0)
+        flag=true
+        document.getElementById("demo").innerHTML="被吃了"+num+"次"
+        document.getElementById("1").src="bun1.png"
+        document.getElementById("2").src="bun1.png"
+        document.getElementById("3").src="bun1.png"
+        document.getElementById("4").src="bun1.png"
+        document.getElementById("5").src="bun1.png"
+        document.getElementById("6").src="bun1.png"
+        document.getElementById("7").src="bun1.png"
+        document.getElementById("8").src="bun1.png"
+        document.getElementById("9").src="bun1.png"
+    }
+</script>
+
+<h1 align="center"><span class="red">气气豹</span>&<span class="pink">秃秃兔</span></h1>
+
+<p id="demo" align="center">戳戳兔屁股</p>
+
+<table border="0" align="center">
+<tr>
+    <td><img id="1" src="bun1.png" width="100" height="100" onclick="change(this,0)"/></td>
+    <td><img id="2" src="bun1.png" width="100" height="100" onclick="change(this,1)"/></td>
+    <td><img id="3" src="bun1.png" width="100" height="100" onclick="change(this,2)"/></td>
+</tr>
+<tr>
+    <td><img id="4" src="bun1.png" width="100" height="100" onclick="change(this,3)"/></td>
+    <td><img id="5" src="bun1.png" width="100" height="100" onclick="change(this,4)"/></td>
+    <td><img id="6" src="bun1.png" width="100" height="100" onclick="change(this,5)"/></td>
+</tr>
+<tr>
+    <td><img id="7" src="bun1.png" width="100" height="100" onclick="change(this,6)"/></td>
+    <td><img id="8" src="bun1.png" width="100" height="100" onclick="change(this,7)"/></td>
+    <td><img id="9" src="bun1.png" width="100" height="100" onclick="change(this,8)"/></td>
+</tr>
+</table>    
+
+<div align="center"><input type="button" value="重来" style="width: 85px; height: 60px;" onclick="reborn()">
+    <a href="index.html"><input type="button" value="返回" style="width: 85px; height: 60px;"></a></div>
+
+</body>    
+</html>
