@@ -34,6 +34,7 @@ function game_lose(){
     document.getElementById("note").innerHTML="卯卯吓哭了";
     document.getElementById("button").style.display="";
     document.getElementById("wy").style.display="none";
+    document.getElementById("ss").style.display="none";
     document.getElementById("uzrn").src="p_lose.png";
     var bg=document.getElementById("bg");
     var gh=document.getElementById("g");
@@ -53,6 +54,9 @@ function cover(){
         var gh=document.getElementById("g");
         var ur=document.getElementById("uzrn");
 
+        document.getElementById("wy").style.display="none";
+        document.getElementById("ss").style.display="";
+
         bg.style.animationPlayState="paused";
         ur.src="p2.png";
         gh.style.animationPlayState="paused";
@@ -65,6 +69,11 @@ function release(){
         var bg=document.getElementById("bg");
         var gh=document.getElementById("g");
         var ur=document.getElementById("uzrn");
+
+        document.getElementById("wy").style.display="";
+        document.getElementById("ss").style.display="none";
+        
+    
         if (ghost_flag!=true){
         ur.src="p1.gif";
 
@@ -159,7 +168,10 @@ function release(){
     </tr>
 </div>
 
-<input type="button" id="wy" value="捂眼睛" style="height: 60px; width:100px; " onmousedown="cover()" onmouseup="release()">
+<!-- <input type="button" id="wy" value="捂眼睛" style="height: 60px; width:100px; " onmousedown="cover()" onmouseup="release()"> -->
+<input type="button" id="wy" value="捂眼睛" style="height: 60px; width:100px; " onclick="cover()">
+<input type="button" id="ss" value="松手" style="height: 60px; width:100px; display:none" onclick="release()">
+
 <input type="button" id="button" value="重来" style="height: 60px; width:100px; display: none" onclick="reborn()">
 <br/>
 <a href="../index.html"><input type="button" value="返回首页" style="width: 100px; height: 60px;"></a>
