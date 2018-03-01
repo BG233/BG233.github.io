@@ -15,7 +15,7 @@ function if_lose(){
         game_lose();
         clearInterval(check);
     }
-    if(succeedNum>1){
+    if(succeedNum>4){
         clearInterval(check);
         setTimeout(leave,1000);
     }
@@ -33,6 +33,7 @@ var can_operate=true;
 function game_lose(){
     document.getElementById("note").innerHTML="卯卯吓哭了";
     document.getElementById("button").style.display="";
+    document.getElementById("wy").style.display="none";
     document.getElementById("uzrn").src="p_lose.png";
     var bg=document.getElementById("bg");
     var gh=document.getElementById("g");
@@ -73,13 +74,13 @@ function release(){
     }
 }
 
-document.onmousedown=function(){
-    cover();
-}
+// document.onmousedown=function(){
+//     cover();
+// }
 
-document.onmouseup=function(){
-    release();
-}
+// document.onmouseup=function(){
+//     release();
+// }
 ////
 
 
@@ -87,8 +88,8 @@ document.onmouseup=function(){
 
 <h1 style="text-align: center; font-size: 20xp; color: pink">👻凛卯月的鬼屋探险👻</h1>
 
-<p align="center">按住屏幕任意位置可捂住卯月眼睛</p>
-<p align="center">别让卯卯看到鬼屋中的”鬼怪“哦</p>
+<p align="center">按住"捂眼睛"按钮可捂住卯月眼睛</p>
+<p align="center">别让卯卯看到鬼屋中的"鬼怪"哦</p>
 <p id="note" align="center">成功了0次</p>
 
 
@@ -158,9 +159,10 @@ document.onmouseup=function(){
     </tr>
 </div>
 
-<input type="button" id="button" value="重来" style="height: 85px; width:60px; display: none" onclick="reborn()">
+<input type="button" id="wy" value="捂眼睛" style="height: 60px; width:100px; " onmousedown="cover()" onmouseup="release()">
+<input type="button" id="button" value="重来" style="height: 60px; width:100px; display: none" onclick="reborn()">
 <br/>
-<a href="../index.html"><input type="button" value="返回首页" style="width: 85px; height: 60px;"></a>
+<a href="../index.html"><input type="button" value="返回首页" style="width: 100px; height: 60px;"></a>
 </div>
 
 
